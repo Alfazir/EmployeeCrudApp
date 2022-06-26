@@ -44,22 +44,10 @@ namespace Crud.UI
         private async  void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             
-            //await Awaiters.DetachCurrentSyncContext();
-            // await Dispatcher.InvokeAsync( (Action) (() => { 
+          
             try
             {
-                //_= await _services.AddEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text);
-                //var responceTask = Task.Run(async () =>await _services.AddEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text));
-                //  var responce = responceTask.Result;
-                // await CreateEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text);
-                // var result = Task.Run(async () => await _services.AddEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text)).Result;
-                // await Dispatcher.Invoke(async() =>  CreateEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text));
-                // completedCallback?.Invoke();
-                //InitializeIfNeededAsync().Wait();
-          
-
-
-               // CreateEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text);
+    
                
                 await _services.AddEmployee(txtEmployeeName.Text, txtEmployeeSurname.Text, txtEmployeePatronymic.Text, EmployeeDate:txtEmployeeDate.Text, 
                     EmployeeDepartment:txtEmployeeDepartment.Text, EmployeeEmail:txtEmployeeEmail.Text,EmployeePhone:txtEmployeePhone.Text, 
@@ -79,14 +67,10 @@ namespace Crud.UI
             finally
             {
                 await ListEmployees();
-                // txtEmployeeID.Clear();
-                //  txtEmployeeName.Clear();
-                // txtEmployeeSurname.Clear();
-                // txtEmployeeID.Focus();
-                //   Thread.ResetAbort();
+               
             }
                 
-            //}));
+           
         }
         #region save as
         /* private Task CreateEmployee(string txtEmployeeName, string txtEmployeeSurname)
@@ -217,11 +201,7 @@ namespace Crud.UI
             txtEmployeePhone.Clear();
             txtEmployeePosition.Clear();
             txtEmployeeDate.Text= null;
-            /*if (txtEmployeeDate?.SelectedDate == new DateTime())
-            {
-                txtEmployeeDate.Text = null;
-                txtEmployeeDate.DisplayDate = DateTime.Now;
-            }*/
+            
 
         }
         public async void ButtonEdit_Click(object sender, RoutedEventArgs e)
