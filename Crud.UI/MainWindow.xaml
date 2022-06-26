@@ -1,0 +1,268 @@
+﻿<Window x:Class="Crud.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+        xmlns:local="clr-namespace:Crud.UI"
+        mc:Ignorable="d"
+        Title="Регистрация сотрудников АО «ЦентрИнформ»" Height="700" Width="1150">
+    <Grid Margin="0,0,-337,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="45"></ColumnDefinition>
+            <ColumnDefinition Width="324"/>
+            <ColumnDefinition Width="18"/>
+            <ColumnDefinition Width="7"></ColumnDefinition>
+            <ColumnDefinition Width="13"></ColumnDefinition>
+            <ColumnDefinition Width="223"/>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="682*"/>
+            <ColumnDefinition Width="125*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="217*"></RowDefinition>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="2" Grid.ColumnSpan="3" Margin="0,167,0,0" Grid.RowSpan="2"
+            />
+
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="123"/>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="0"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+
+                <Label
+                    Content="ID сотрудника"
+                    Grid.Row="0"
+                     Grid.Column="0" />
+
+                <TextBox      
+                    x:Name="txtEmployeeID"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    
+                 />
+
+
+                <Label
+                    Content="Имя"
+                    Grid.Row="2"
+                     Grid.Column="0" />
+
+                <TextBox      
+                    x:Name="txtEmployeeName"
+                    Grid.Row="2"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 >
+                    <TextBox.Text>
+                        <Binding Path="EmployeeName">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+
+                <Label
+                    Content="Фамилия"
+                    Grid.Row="4"
+                     Grid.Column="0" />
+
+                <TextBox      
+                    x:Name="txtEmployeeSurname"
+                    Grid.Row="4"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 />
+                <Label
+                    Content="Отчество"
+                    Grid.Row="6"
+                     Grid.Column="0" />
+
+                <TextBox      
+                    x:Name="txtEmployeePatronymic"
+                    Grid.Row="6"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 />
+
+                <Label
+                    Content="Должность"
+                    Grid.Row="8"
+                     Grid.Column="0" />
+                <TextBox      
+                    x:Name="txtEmployeePosition"
+                    Grid.Row="8"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 />
+
+                <Label
+                    Content="Дата рождения"
+                    Grid.Row="10"
+                     Grid.Column="0" />
+                <DatePicker      
+                    x:Name="txtEmployeeDate"
+                    Grid.Row="10"
+                     Grid.Column="1"
+                   
+                 />
+
+                <Label
+                    Content="Тел. номер"
+                    Grid.Row="12"
+                     Grid.Column="0" />
+                <TextBox      
+                
+                    
+                    x:Name="txtEmployeePhone"
+                    Grid.Row="12"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 >
+                    <TextBox.Text>
+                        <Binding Path="EmployeePhone">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label
+                    Content="Email"
+                    Grid.Row="14"
+                     Grid.Column="0" />
+                <TextBox      
+                    x:Name="txtEmployeeEmail"
+                    Grid.Row="14"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 />
+
+                <Label
+                    Content="Отдел"
+                    Grid.Row="16"
+                     Grid.Column="0" />
+                <TextBox      
+                    x:Name="txtEmployeeDepartment"
+                    Grid.Row="16"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 />
+
+               
+                <StackPanel
+                     Grid.Row="18"
+                     Grid.ColumnSpan="2"
+                     Orientation="Horizontal"
+                    >
+
+                    <Button
+                        Width="80"
+                        Content="Добавить"
+                        x:Name="ButtonAdd"
+                       Margin="3 0 0 0"
+                        />
+
+                    <Button
+                        Width="80"
+                        Content="Обновить"
+                        x:Name="ButtonEdit"
+                        Margin="12 0 12 0"
+                        />
+                    <Button
+                        Width="80"
+                        Content="Поиск"
+                        x:Name="ButtonSearch"
+                        />
+                    <Button
+                        Width="80"
+                        Content="Удаление"
+                        x:Name="ButtonDelete"
+                        Margin="12 0 4 0" RenderTransformOrigin="2.06,0.562"
+                        />
+
+                </StackPanel>
+                <StackPanel
+                     Grid.Row="20"
+                     Grid.ColumnSpan="2"
+                     Orientation="Horizontal"
+                    >
+                    <Button
+                        Width="172"
+                        Content="Просмотр списка"
+                        x:Name="ButtonList"
+                        Margin="0 0 19 0"
+                        />
+                    <Button
+                        Width="172"
+                        Content="Очистить"
+                        x:Name="ButtonClear"
+                        Margin="0 0 0 0"
+                        />
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
+
+        <DataGrid
+            Grid.Column="5"
+            Grid.Row="1"
+            x:Name="DataGridEmployees"
+            Margin="5,10,0,5" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="700" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=EmployeeName}"  Width="100" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=EmployeeSurname}" Width="100"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Path=EmployeePatronymic}" Width="100" />
+                <DataGridTextColumn Header="Должность" Binding="{Binding Path=EmployeePosition}" Width="100"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=EmployeeDate}" Width="100"/>
+                <DataGridTextColumn Header="Тел. номер" Binding="{Binding Path=EmployeePhone}" Width="100"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Path=EmployeeEmail}" Width="100" />
+                <DataGridTextColumn Header="Отдел" Binding="{Binding Path=EmployeeDepartment}" Width="100"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+    </Grid>
+</Window>

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.Domain", "..\Crud.Domain\Crud.Domain.csproj", "{33A3515C-3EF6-46A8-BA2F-F6BA425C95E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.Domain", "..\EmployeeCrudApp\Crud.Domain\Crud.Domain.csproj", "{33A3515C-3EF6-46A8-BA2F-F6BA425C95E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.EF", "..\Crud.EF\Crud.EF.csproj", "{C97A292B-5F78-47B8-AF1D-769BFACFFEA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.EF", "..\EmployeeCrudApp\Crud.EF\Crud.EF.csproj", "{C97A292B-5F78-47B8-AF1D-769BFACFFEA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud.UI", "..\Crud.UI\Crud.UI.csproj", "{96AFBF30-1428-4732-82AB-194BA34F26C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crud.UI", "..\EmployeeCrudApp\Crud.UI\Crud.UI.csproj", "{96AFBF30-1428-4732-82AB-194BA34F26C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{7AB928EB-D02F-4FA3-B43B-EFC2B8BF52DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33A3515C-3EF6-46A8-BA2F-F6BA425C95E6} = {7AB928EB-D02F-4FA3-B43B-EFC2B8BF52DC}
+		{C97A292B-5F78-47B8-AF1D-769BFACFFEA5} = {7AB928EB-D02F-4FA3-B43B-EFC2B8BF52DC}
+		{96AFBF30-1428-4732-82AB-194BA34F26C0} = {7AB928EB-D02F-4FA3-B43B-EFC2B8BF52DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B10FD4E-E2AB-4983-ABF7-74D964694434}
