@@ -39,6 +39,7 @@ namespace Crud.UI
             ButtonDelete.Click += ButtonDelete_Click;
             ButtonSearch.Click+= ButtonSearch_Click;
             ButtonClear.Click += ButtonClear_ClicK;
+            ButtonEdit.Click += ButtonEdit_Click;
         }
 
         private async  void ButtonAdd_Click(object sender, RoutedEventArgs e)
@@ -142,7 +143,15 @@ namespace Crud.UI
 
         private async void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
-            var SearchName = await _services.SearchEmployeeByName(txtEmployeeName.Text);
+            var SearchName = await _services.ListEmployees();
+            if (!string.IsNullOrEmpty(txtEmployeeName.Text)) { 
+             SearchName = await _services.SearchEmployeeByName(txtEmployeeName.Text);
+            }
+            else if (!string.IsNullOrEmpty(txtEmployeeName.Text)) 
+            {
+            
+            
+            }
             DataGridEmployees.ItemsSource= SearchName.ToList();
         }
 
@@ -168,7 +177,9 @@ namespace Crud.UI
             {
                 if (txtEmployeeID.Text != string.Empty && txtEmployeeName.Text != string.Empty)
                 {
-                    await _services.UpdateEmployee(int.Parse(txtEmployeeID.Text), txtEmployeeName.Text);
+                    await _services.UpdateEmployee(id:int.Parse(txtEmployeeID.Text), EmployeeName:txtEmployeeName.Text,EmployeeSurname:txtEmployeeSurname.Text, EmployeePatronymic:txtEmployeePatronymic.Text, EmployeeDate: txtEmployeeDate.Text,
+                    EmployeeDepartment: txtEmployeeDepartment.Text, EmployeeEmail: txtEmployeeEmail.Text, EmployeePhone: txtEmployeePhone.Text,
+                    EmployeePosition: txtEmployeePosition.Text);
                     throw new Exception("Данные сотрудника обновлены");
                 }
             }

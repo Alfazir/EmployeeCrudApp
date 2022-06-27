@@ -118,12 +118,22 @@ namespace Crud.EF
             }
         }
 
-        public async Task <Employee> UpdateEmployee (int id, string EmployeeName)
+        public async Task <Employee> UpdateEmployee (int id, string EmployeeName, string EmployeeSurname,
+            string EmployeePatronymic, string? EmployeePosition = default, string? EmployeeDate = default
+            , string? EmployeePhone = default, string? EmployeeEmail = default, string? EmployeeDepartment = default)
         {
             try
             {
                 Employee emp = await SearchEmployeeID(id);
                 emp.EmployeeName = EmployeeName;
+                emp.EmployeeSurname = EmployeeSurname;
+                emp.EmployeePatronymic = EmployeePatronymic;
+                emp.EmployeeDate = DateTime.Parse(EmployeeDate);
+                emp.EmployeePhone = EmployeePhone;
+                emp.EmployeeEmail = EmployeeEmail;
+                emp.EmployeeDepartment = EmployeeDepartment;
+                emp.EmployeePosition = EmployeePosition;
+                
                 return await _crudServices.Update(emp);
 
                 
