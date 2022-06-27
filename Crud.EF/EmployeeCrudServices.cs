@@ -29,7 +29,7 @@ namespace Crud.EF
             {
                 if (EmployeeName == string.Empty || EmployeeSurname == string.Empty || EmployeePatronymic ==string.Empty)
                 {
-                    throw new Exception("Обязательные поля должны быть заполнены!");
+                    throw new Exception("Поля Ф.И.О. должны быть заполнены!");
                 }
 
                 else
