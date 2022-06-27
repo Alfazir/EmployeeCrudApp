@@ -59,6 +59,7 @@ namespace Crud.UI
                 txtEmployeeName.Clear();
                 txtEmployeeSurname.Clear();
                 txtEmployeeID.Focus();
+                txtEmployeeSurname.Focus();
             }
             catch (Exception ex)
             {
@@ -113,6 +114,15 @@ namespace Crud.UI
                     txtEmployeePhone.Text = activelist.EmployeePhone;
                     
                 }
+
+                txtEmployeeName.Focus();
+                txtEmployeePatronymic.Focus();
+                txtEmployeeSurname.Focus();
+                txtEmployeeEmail.Focus();
+                txtEmployeePhone.Focus();
+                txtEmployeeName.Focus();
+                txtEmployeeSurname.Focus();
+
             }
             catch (Exception ex)
             {
@@ -136,7 +146,24 @@ namespace Crud.UI
             }
             finally
             {
+                txtEmployeeID.Clear();
+                txtEmployeeName.Clear();
+                txtEmployeeSurname.Clear();
+                txtEmployeeID.Clear();
+                txtEmployeeDepartment.Clear();
+                txtEmployeeEmail.Clear();
+                txtEmployeePatronymic.Clear();
+                txtEmployeePhone.Clear();
+                txtEmployeePosition.Clear();
+                txtEmployeeDate.Text = null;
                 await ListEmployees();
+                txtEmployeeName.Focus();
+                txtEmployeePatronymic.Focus();
+                txtEmployeeSurname.Focus();
+                txtEmployeeEmail.Focus();
+                txtEmployeePhone.Focus();
+                txtEmployeeName.Focus();
+                txtEmployeeSurname.Focus();
             }
 
         }
@@ -144,14 +171,12 @@ namespace Crud.UI
         private async void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
             var SearchName = await _services.ListEmployees();
-            if (!string.IsNullOrEmpty(txtEmployeeName.Text)) { 
-             SearchName = await _services.SearchEmployeeByName(txtEmployeeName.Text);
-            }
-            else if (!string.IsNullOrEmpty(txtEmployeeName.Text)) 
-            {
+            
+             SearchName = await _services.SearchEmployeeByName(txtEmployeeName.Text, txtEmployeeSurname.Text, txtEmployeePatronymic.Text, EmployeeDate: txtEmployeeDate.Text,
+                    EmployeeDepartment: txtEmployeeDepartment.Text, EmployeeEmail: txtEmployeeEmail.Text, EmployeePhone: txtEmployeePhone.Text,
+                    EmployeePosition: txtEmployeePosition.Text);
             
             
-            }
             DataGridEmployees.ItemsSource= SearchName.ToList();
         }
 
@@ -168,7 +193,13 @@ namespace Crud.UI
             txtEmployeePhone.Clear();
             txtEmployeePosition.Clear();
             txtEmployeeDate.Text= null;
-            
+            txtEmployeeName.Focus();
+            txtEmployeePatronymic.Focus();
+            txtEmployeeSurname.Focus();
+            txtEmployeeEmail.Focus();
+            txtEmployeePhone.Focus();
+            txtEmployeeName.Focus();
+            txtEmployeeSurname.Focus();
 
         }
         public async void ButtonEdit_Click(object sender, RoutedEventArgs e)

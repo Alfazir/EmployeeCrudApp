@@ -77,18 +77,41 @@
                     x:Name="txtEmployeeID"
                     Grid.Row="0"
                     Grid.Column="1"
-                    
+                    IsReadOnly="True"
+
+
                  />
 
 
                 <Label
-                    Content="Имя"
+                    Content="Фамилия"
                     Grid.Row="2"
                      Grid.Column="0" />
 
                 <TextBox      
-                    x:Name="txtEmployeeName"
+                    x:Name="txtEmployeeSurname"
                     Grid.Row="2"
+                     Grid.Column="1"
+                    MaxLength="100"
+                 >
+                    <TextBox.Text>
+                        <Binding Path="EmployeeSurname">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+
+                <Label
+                    Content="Имя"
+                    Grid.Row="4"
+                     Grid.Column="0" />
+
+                <TextBox      
+                    x:Name="txtEmployeeName"
+                    Grid.Row="4"
                      Grid.Column="1"
                     MaxLength="100"
                  >
@@ -100,19 +123,6 @@
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
-
-
-                <Label
-                    Content="Фамилия"
-                    Grid.Row="4"
-                     Grid.Column="0" />
-
-                <TextBox      
-                    x:Name="txtEmployeeSurname"
-                    Grid.Row="4"
-                     Grid.Column="1"
-                    MaxLength="100"
-                 />
                 <Label
                     Content="Отчество"
                     Grid.Row="6"
@@ -123,7 +133,15 @@
                     Grid.Row="6"
                      Grid.Column="1"
                     MaxLength="100"
-                 />
+                 >
+                    <TextBox.Text>
+                        <Binding Path="EmployeePatronymic">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <Label
                     Content="Должность"
@@ -190,7 +208,7 @@
                     MaxLength="100"
                  />
 
-               
+
                 <StackPanel
                      Grid.Row="18"
                      Grid.ColumnSpan="2"
@@ -249,11 +267,11 @@
             Grid.Column="5"
             Grid.Row="1"
             x:Name="DataGridEmployees"
-            Margin="5,10,0,5" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="700" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="False">
+            Margin="5,10,0,5" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="700" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Path=EmployeeName}"  Width="100" />
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=EmployeeSurname}" Width="100"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=EmployeeName}"  Width="100" />
                 <DataGridTextColumn Header="Отчество" Binding="{Binding Path=EmployeePatronymic}" Width="100" />
                 <DataGridTextColumn Header="Должность" Binding="{Binding Path=EmployeePosition}" Width="100"/>
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding Path=EmployeeDate}" Width="100"/>

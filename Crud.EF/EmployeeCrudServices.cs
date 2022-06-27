@@ -103,11 +103,46 @@ namespace Crud.EF
             }
         }
 
-        public async Task<ICollection<Employee>> SearchEmployeeByName (string EmployeeName)
+        public async Task<ICollection<Employee>> SearchEmployeeByName (string EmployeeName, string EmployeeSurname,
+            string EmployeePatronymic, string? EmployeePosition = default, string? EmployeeDate = default
+            , string? EmployeePhone = default, string? EmployeeEmail = default, string? EmployeeDepartment = default)
         {
             try
             {
                 var listemployees = await ListEmployees();
+                if (EmployeeName != "")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeeName.StartsWith(EmployeeName)).ToList();
+                }
+                else if (EmployeeSurname != "")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeeSurname.StartsWith(EmployeeSurname)).ToList();
+                }
+                else if (EmployeePatronymic != "")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeePatronymic.StartsWith(EmployeePatronymic)).ToList();
+                }
+                else if (EmployeePosition != "")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeePosition.StartsWith(EmployeePosition)).ToList();
+                }
+                else if (EmployeePhone!="")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeePhone.StartsWith(EmployeePhone)).ToList();
+                }
+                else if (EmployeeEmail!="")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeeEmail.StartsWith(EmployeeEmail)).ToList();
+                }
+                else if (EmployeeDate!="")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeeDate == DateTime.Parse(EmployeeDate)).ToList();
+                }
+                else if (EmployeeDepartment!="")
+                {
+                    listemployees = listemployees.Where(x => x.EmployeeDepartment.StartsWith(EmployeeDepartment)).ToList();
+                }
+
                 return listemployees.Where(x => x.EmployeeName.StartsWith(EmployeeName)).ToList();
 
             }
